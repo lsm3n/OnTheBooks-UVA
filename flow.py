@@ -1,5 +1,5 @@
 from crop import *
-from ocr import *
+#from ocr import *
 
 
 def single(volume):
@@ -10,7 +10,7 @@ def single(volume):
     else:
         print('no images files in root of volume directory')
 
-volume = '1964'
+volume = '1959es'
 single(volume)
 #list = volList(volume)
 #single(list)

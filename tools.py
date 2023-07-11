@@ -9,7 +9,7 @@ import numpy as np
 import pandas as pd
 import csv
 
-
+volume = '1865es'
 
 
 def compile_flagged_laws(volume, lawnumber):
@@ -195,10 +195,10 @@ def break_laws(volume):
                 for line in infile:
                     #if int(volume) < 1950:
                         # pattern match for pre-1950 volumes using phrase  "Chap. ##."
-                    pattern = re.compile(r"Chap\. \d+(\,|\.)", re.IGNORECASE)
+                    #pattern = re.compile(r"Chap\. \d+(\,|\.)", re.IGNORECASE)
                     #else:
                         # pattern match for post-1950 volumes using phrase  "CHAPTER. ##."
-                        #pattern = re.compile(r"CHAPTER\s*(\d+)\s*\n", re.IGNORECASE)
+                    pattern = re.compile(r"CHAPTER\s*(\d+)\s*\n")
 
                     lawmatch = pattern.search(line)
                     if lawmatch:
@@ -242,8 +242,9 @@ def extract_titles(volume):
         para = ' '.join(para)
 
         #if int(volume) > 1949:
-            #pattern = re.compile(r"CHAPTER\s*(\d+)\s*\n", re.IGNORECASE)
+
         #else:
+        #pattern = re.compile(r"CHAPTER\s*(\d+)\s*\n")
         pattern = re.compile(r"Chap\. \d+(\,|\.)", re.IGNORECASE)
 
 
@@ -271,6 +272,6 @@ def extract_titles(volume):
 #gather_laws()
 
 
-#qc_process(volume)
-#break_laws(volume)
-#extract_titles(volume)
+qc_process(volume)
+break_laws(volume)
+extract_titles(volume)
