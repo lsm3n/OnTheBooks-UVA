@@ -61,7 +61,7 @@ def tokenize_corpus():
 
     laws_data.to_csv(f"{os.getcwd()}/data/corpus_sentences.csv")
 
-tokenize_corpus()
+
 
 def iterator():
 
